@@ -2,7 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Api\Auth\AuthController;
+use App\Http\Controllers\Api\RequestController;
+use App\Http\Controllers\Api\CertificateRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,16 +17,14 @@ use App\Http\Controllers\Auth\AuthController;
 |
 */
 
-Route::post('login', [AuthController::class, 'login']);
-Route::post('logout', [AuthController::class, 'logout'])->middleware('jwt.auth');
+
 
 Route::group([
-    'middleware' => 'auth:api',
+    'prefix' => 'api/v1'
 ], function ($router) {
-    // Route::post('/login', [AuthController::class, 'login']);
-    // Route::post('/register', [AuthController::class, 'register']);
-    // Route::post('/logout', [AuthController::class, 'logout']);
-    // Route::post('/refresh', [AuthController::class, 'refresh']);
-    // Route::get('/user-profile', [AuthController::class, 'userProfile']);
-    // Route::post('/change-pass', [AuthController::class, 'changePassWord']);    
+    Route::post('login', [AuthController::class, 'login']);
+    Route::post('logout', [AuthController::class, 'logout'])->middleware('jwt.auth');
+
+    Route::get('requests', [RequestController::class, 'index']);
+    Route::post('requests/certificate', [CertificateRequestController::class, 'store']);
 });
