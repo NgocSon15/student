@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Services\CertificateRequestService;
+use App\Services\TranscriptRequestService;
 use App\Services\RequestService;
-use App\Http\Requests\Api\CertificateRequestRequest;
+use App\Http\Requests\Api\TranscriptRequestRequest;
 use App\Constants\AppRequest;
 use Illuminate\Support\Facades\DB;
 use App\Traits\ApiResponse;
 use App\Http\Resources\RequestResource;
 
-class CertificateRequestController extends ApiController
+class TranscriptRequestController extends ApiController
 {
     use ApiResponse;
     /**
@@ -19,24 +19,24 @@ class CertificateRequestController extends ApiController
      */
     private $requestService;
     /**
-     * @var CertificateRequestService
+     * @var TranscriptRequestService
      */
-    private $certificateRequestService;
+    private $transcriptRequestService;
 
     public function __construct(
         RequestService $requestService,
-        CertificateRequestService $certificateRequestService
+        TranscriptRequestService $transcriptRequestService
     ) {
         $this->requestService = $requestService;
-        $this->certificateRequestService = $certificateRequestService;
+        $this->transcriptRequestService = $transcriptRequestService;
         parent::__construct();
     }
 
     /**
-     * @param CertificateRequestRequest $request
+     * @param TranscriptRequestRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CertificateRequestRequest $request)
+    public function store(TranscriptRequestRequest $request)
     {
         DB::beginTransaction();
         try {
@@ -46,7 +46,7 @@ class CertificateRequestController extends ApiController
             $newRequest = $this->requestService->store([
                 'user_id' => $userId,
                 'code' => '12345',
-                'type' => AppRequest::TYPE_CERTIFICATE,
+                'type' => AppRequest::TYPE_TRANSCRIPT,
                 'status' => AppRequest::STATUS_NOT_RECEIVED,
                 'receive_date' => now()
             ]);
@@ -54,7 +54,7 @@ class CertificateRequestController extends ApiController
             $params = $request->all();
             $params['request_id'] = $newRequest->id;
 
-            $this->certificateRequestService->store($params);
+            $this->transcriptRequestService->store($params);
             
             DB::commit();
             return $this->sendSuccess(

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\Api\RequestController;
 use App\Http\Controllers\Api\CertificateRequestController;
+use App\Http\Controllers\Api\TranscriptRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +28,5 @@ Route::group([
 
     Route::get('requests', [RequestController::class, 'index']);
     Route::post('requests/certificate', [CertificateRequestController::class, 'store']);
+    Route::post('requests/transcript', [TranscriptRequestController::class, 'store']);
 });
