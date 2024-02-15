@@ -6,6 +6,8 @@ use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\Api\RequestController;
 use App\Http\Controllers\Api\CertificateRequestController;
 use App\Http\Controllers\Api\TranscriptRequestController;
+use App\Http\Controllers\Api\PauseExamRequestController;
+use App\Http\Controllers\Api\PauseTuitionRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +23,7 @@ use App\Http\Controllers\Api\TranscriptRequestController;
 
 
 Route::group([
-    'prefix' => 'api/v1'
+    'prefix' => 'v1'
 ], function ($router) {
     Route::post('login', [AuthController::class, 'login']);
     Route::post('logout', [AuthController::class, 'logout'])->middleware('jwt.auth');
@@ -29,4 +31,7 @@ Route::group([
     Route::get('requests', [RequestController::class, 'index']);
     Route::post('requests/certificate', [CertificateRequestController::class, 'store']);
     Route::post('requests/transcript', [TranscriptRequestController::class, 'store']);
+    Route::post('requests/pause-exam', [PauseExamRequestController::class, 'store']);
+    Route::post('requests/review-exam', [ReviewExamRequestController::class, 'store']);
+    Route::post('requests/pause-tuition', [PauseTuitionRequestController::class, 'store']);
 });
