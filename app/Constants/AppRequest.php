@@ -11,6 +11,9 @@ class AppRequest
     const TYPE_PAUSE_EXAM = 3;
     const TYPE_REVIEW_EXAM = 4;
     const TYPE_PAUSE_TUITION = 5;
+    const TYPE_BORROW_FILE = 6;
+    const TYPE_SOCIAL_ASSISTANCE = 7;
+    const TYPE_BANK_LOAN = 8;
 
     const TYPES = [
         self::TYPE_CERTIFICATE => 'certificate',
@@ -18,6 +21,9 @@ class AppRequest
         self::TYPE_PAUSE_EXAM => 'pause_exam',
         self::TYPE_REVIEW_EXAM => 'review_exam',
         self::TYPE_PAUSE_TUITION => 'pause_tuition',
+        self::TYPE_BORROW_FILE => 'borrow_file',
+        self::TYPE_SOCIAL_ASSISTANCE => 'social_assistance',
+        self::TYPE_BANK_LOAN => 'bank_loan',
     ];
 
     const STATUS_NOT_RECEIVED = 1;

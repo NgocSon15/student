@@ -5,23 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PauseExamRequestModel extends Model
+class BorrowFileRequestModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'pause_exam_requests';
+    protected $table = 'borrow_file_requests';
     protected $fillable = [
         'request_id',
-        'subject_name',
-        'teacher_name',
-        'exam_date',
-        'reason',
-        'files'
+        'file_types',
+        'other_file',
+        'start_date',
+        'end_date',
+        'reason'
     ];
 
     protected $casts = [
-        'exam_date' => 'datetime',
-        'files' => 'array'
+        'file_types' => 'array',
+        'start_date' => 'datetime',
+        'end_date' => 'datetime',
     ];
 
     public function toArray()

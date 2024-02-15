@@ -8,6 +8,9 @@ use App\Http\Controllers\Api\CertificateRequestController;
 use App\Http\Controllers\Api\TranscriptRequestController;
 use App\Http\Controllers\Api\PauseExamRequestController;
 use App\Http\Controllers\Api\PauseTuitionRequestController;
+use App\Http\Controllers\Api\BorrowFileRequestController;
+use App\Http\Controllers\Api\SocialAssistanceRequestController;
+use App\Http\Controllers\Api\BankLoanRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +37,7 @@ Route::group([
     Route::post('requests/pause-exam', [PauseExamRequestController::class, 'store']);
     Route::post('requests/review-exam', [ReviewExamRequestController::class, 'store']);
     Route::post('requests/pause-tuition', [PauseTuitionRequestController::class, 'store']);
+    Route::post('requests/borrow-file', [BorrowFileRequestController::class, 'store']);
+    Route::post('requests/social-assistance', [SocialAssistanceRequestController::class, 'store']);
+    Route::post('requests/bank-loan', [BankLoanRequestController::class, 'store']);
 });

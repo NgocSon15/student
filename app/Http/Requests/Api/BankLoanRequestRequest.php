@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests\Api;
 
-use App\Constants\PauseExamRequest;
+use App\Constants\BankLoanRequest;
 use App\Models\SettingModel;
 
-class PauseExamRequestRequest extends ApiRequest
+class BankLoanRequestRequest extends ApiRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -20,11 +20,8 @@ class PauseExamRequestRequest extends ApiRequest
     public function rules()
     {
         return [
-            'subject_name' => ['required'],
-            'teacher_name' => ['required'],
-            'exam_date' => ['required'],
-            'reason' => ['nullable'],
-            'files' => ['nullable', 'array']
+            'tuition_type' => ['required', 'integer', 'in:' . implode(',', array_keys(BankLoanRequest::TYPES))],
+            'reason' => ['nullable']
         ];
     }
 
