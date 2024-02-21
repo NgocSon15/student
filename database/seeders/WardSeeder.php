@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Ward;
+use App\Models\WardModel;
 use League\Csv\Reader;
 use Illuminate\Support\Facades\Storage;
 
@@ -23,7 +23,7 @@ class WardSeeder extends Seeder
         $records = $csv->getRecords();
 
         foreach ($records as $record) {
-            Ward::create([
+            WardModel::create([
                 'id' => $record['id'],
                 'district_id' => $record['district_id'],
                 'name' => $record['name'],

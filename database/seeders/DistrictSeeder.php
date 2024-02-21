@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\District;
+use App\Models\DistrictModel;
 use League\Csv\Reader;
 use Illuminate\Support\Facades\Storage;
 
@@ -23,7 +23,7 @@ class DistrictSeeder extends Seeder
         $records = $csv->getRecords();
 
         foreach ($records as $record) {
-            District::create([
+            DistrictModel::create([
                 'id' => $record['id'],
                 'province_id' => $record['province_id'],
                 'name' => $record['name'],

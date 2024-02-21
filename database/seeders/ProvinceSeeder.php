@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Province;
+use App\Models\ProvinceModel;
 use League\Csv\Reader;
 use Illuminate\Support\Facades\Storage;
 
@@ -23,7 +23,7 @@ class ProvinceSeeder extends Seeder
         $records = $csv->getRecords();
 
         foreach ($records as $record) {
-            Province::create([
+            ProvinceModel::create([
                 'id' => $record['id'],
                 'name' => $record['name'],
             ]);
