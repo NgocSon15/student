@@ -11,6 +11,9 @@ use App\Http\Controllers\Api\PauseTuitionRequestController;
 use App\Http\Controllers\Api\BorrowFileRequestController;
 use App\Http\Controllers\Api\SocialAssistanceRequestController;
 use App\Http\Controllers\Api\BankLoanRequestController;
+use App\Http\Controllers\Api\StudentCardRequestController;
+use App\Http\Controllers\Api\TempCertificateRequestController;
+use App\Http\Controllers\Api\TimeLimitedAbsenceRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +43,7 @@ Route::group([
     Route::post('requests/borrow-file', [BorrowFileRequestController::class, 'store']);
     Route::post('requests/social-assistance', [SocialAssistanceRequestController::class, 'store']);
     Route::post('requests/bank-loan', [BankLoanRequestController::class, 'store']);
+    Route::post('requests/student-card', [StudentCardRequestController::class, 'store']);
+    Route::post('requests/temp-certificate', [TempCertificateRequestController::class, 'store']);
+    Route::post('requests/time-limited-absence', [TimeLimitedAbsenceRequestController::class, 'store']);
 });
