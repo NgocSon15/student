@@ -26,8 +26,8 @@ class RequestController extends ApiController
         try {
             $user = $request->user();
             $params = [
-                'limit' => $request->query('limit', AppRequest::LIMIT) ?? AppRequest::LIMIT,
-                'offset' => $request->query('offset', 0) ?? 0,
+                'limit' => $request->query('pageSize', AppRequest::LIMIT) ?? AppRequest::LIMIT,
+                'offset' => $request->query('pageIndex', 1) ?? 1,
             ];
             [$total, $requests] = $this->requestService->all($params);
 

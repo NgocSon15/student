@@ -19,7 +19,7 @@ class RequestService
         
         $total = RequestModel::count();
 
-        $requests = RequestModel::skip($offset)->take($limit)->get();
+        $requests = RequestModel::skip(($offset - 1) * $limit)->take($limit)->get();
 
         return [$total, $requests];
     }
