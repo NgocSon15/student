@@ -55,28 +55,6 @@ class PauseExamRequestController extends ApiController
             $params = $request->all();
             $params['request_id'] = $newRequest->id;
 
-            $files = $request->file('files');
-            $fileUrls = [];
-
-            foreach ($files as $file) {
-                // Generate a unique file name
-                $fileName = time() . '_' . $file->getClientOriginalName();
-            
-                // Define the path within the S3 bucket
-                $filePath = 'uploads/' . $userId . '/' . $fileName;
-                
-                // Upload file to S3 with the specified path
-                Storage::disk('s3')->put($filePath, file_get_contents($file));
-
-                // Make the file public
-                Storage::disk('s3')->setVisibility($filePath, 'public');
-                
-                // Add the file URL to the array
-                $fileUrls[] = $filePath;
-            }
-
-            $params['files'] = $fileUrls;
-
             $this->pauseExamRequestService->store($params);
             
             DB::commit();

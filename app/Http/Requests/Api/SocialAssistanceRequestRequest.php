@@ -22,7 +22,7 @@ class SocialAssistanceRequestRequest extends ApiRequest
         return [
             'reason' => ['nullable'],
             'files' => ['required', 'array'],
-            'files.*' => ['required', 'file']
+            'files.*' => ['required']
         ];
     }
 
