@@ -24,7 +24,7 @@ class TimeLimitedAbsenceRequestRequest extends ApiRequest
             'files' => ['required', 'array'],
             'start_date' => ['required'],
             'end_date' => ['required'],
-            'files.*' => ['required']
+            'files.*' => ['required', 'file']
         ];
     }
 
