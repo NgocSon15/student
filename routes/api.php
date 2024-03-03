@@ -14,6 +14,9 @@ use App\Http\Controllers\Api\BankLoanRequestController;
 use App\Http\Controllers\Api\StudentCardRequestController;
 use App\Http\Controllers\Api\TempCertificateRequestController;
 use App\Http\Controllers\Api\TimeLimitedAbsenceRequestController;
+use App\Http\Controllers\Api\ContinueStudyRequestController;
+use App\Http\Controllers\Api\StopStudyRequestController;
+use App\Http\Controllers\Api\GoingAbroadRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,4 +49,7 @@ Route::group([
     Route::post('requests/student-card', [StudentCardRequestController::class, 'store']);
     Route::post('requests/temp-certificate', [TempCertificateRequestController::class, 'store']);
     Route::post('requests/time-limited-absence', [TimeLimitedAbsenceRequestController::class, 'store']);
+    Route::post('requests/continue-study', [ContinueStudyRequestController::class, 'store']);
+    Route::post('requests/stop-study', [StopStudyRequestController::class, 'store']);
+    Route::post('requests/going-abroad', [GoingAbroadRequestController::class, 'store']);
 });

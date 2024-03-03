@@ -17,6 +17,9 @@ class AppRequest
     const TYPE_STUDENT_CARD = 9;
     const TYPE_TEMP_CERTIFICATE = 10;
     const TYPE_TIME_LIMITED_ABSENCE = 11;
+    const TYPE_CONTINUE_STUDY = 12;
+    const TYPE_STOP_STUDY = 13;
+    const TYPE_GOING_ABROAD = 14;
 
     const TYPES = [
         self::TYPE_CERTIFICATE => 'certificate',
@@ -30,6 +33,9 @@ class AppRequest
         self::TYPE_STUDENT_CARD => 'student_card',
         self::TYPE_TEMP_CERTIFICATE => 'temp_certificate',
         self::TYPE_TIME_LIMITED_ABSENCE => 'time_limited_absence',
+        self::TYPE_CONTINUE_STUDY => 'continue_study',
+        self::TYPE_STOP_STUDY => 'stop_study',
+        self::TYPE_GOING_ABROAD => 'going_abroad',
     ];
 
     const STATUS_NOT_RECEIVED = 1;
