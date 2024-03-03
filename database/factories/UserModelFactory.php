@@ -14,9 +14,11 @@ class UserModelFactory extends Factory
      */
     public function definition()
     {
+        $code = random_int(10000000, 24999999);
         return [
             'name' => $this->faker->name(),
-            'email' => random_int(10000000, 24999999) . '@vnu.edu.vn',
+            'code' => $code,
+            'email' => $code . '@vnu.edu.vn',
             'email_verified_at' => now(),
             'password' => bcrypt('Abcd@123'),
             'remember_token' => Str::random(10),

@@ -44,13 +44,7 @@ class TimeLimitedAbsenceRequestController extends ApiController
             $user = $request->user();
             $userId = $user->id;
 
-            $newRequest = $this->requestService->store([
-                'user_id' => $userId,
-                'code' => '12345',
-                'type' => AppRequest::TYPE_TIME_LIMITED_ABSENCE,
-                'status' => AppRequest::STATUS_NOT_RECEIVED,
-                'receive_date' => now()
-            ]);
+            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_TIME_LIMITED_ABSENCE);;
 
             $params = $request->all();
             $params['request_id'] = $newRequest->id;

@@ -29,8 +29,73 @@ class RequestModel extends Model
         return $array;
     }
 
-    public function CertificateRequest()
+    public function certificateRequest()
     {
-        return $this->hasOne(CertificateRequestModel::class, 'id', 'request_id');
+        return $this->hasOne(CertificateRequestModel::class, 'request_id', 'id');
+    }
+
+    public function transcriptRequest()
+    {
+        return $this->hasOne(TranscriptRequestModel::class, 'request_id', 'id');
+    }
+
+    public function pauseExamRequest()
+    {
+        return $this->hasOne(PauseExamRequestModel::class, 'request_id', 'id');
+    }
+
+    public function reviewExamRequest()
+    {
+        return $this->hasOne(ReviewExamRequestModel::class, 'request_id', 'id');
+    }
+
+    public function pauseTuitionRequest()
+    {
+        return $this->hasOne(PauseTuitionRequestModel::class, 'request_id', 'id');
+    }
+
+    public function borrowFileRequest()
+    {
+        return $this->hasOne(BorrowFileRequestModel::class, 'request_id', 'id');
+    }
+
+    public function socialAssistanceRequest()
+    {
+        return $this->hasOne(SocialAssistanceRequestModel::class, 'request_id', 'id');
+    }
+
+    public function bankLoanRequest()
+    {
+        return $this->hasOne(BankLoanRequestModel::class, 'request_id', 'id');
+    }
+
+    public function studentCardRequest()
+    {
+        return $this->hasOne(StudentCardRequestModel::class, 'request_id', 'id');
+    }
+
+    public function tempCertificateRequest()
+    {
+        return $this->hasOne(TempCertificateRequestModel::class, 'request_id', 'id');
+    }
+
+    public function timeLimitedAbsenceRequest()
+    {
+        return $this->hasOne(TimeLimitedAbsenceRequestModel::class, 'request_id', 'id');
+    }
+
+    public function continueStudyRequest()
+    {
+        return $this->hasOne(ContinueStudyRequestModel::class, 'request_id', 'id');
+    }
+
+    public function stopStudyRequest()
+    {
+        return $this->hasOne(StopStudyRequestModel::class, 'request_id', 'id');
+    }
+
+    public function goingAbroadRequest()
+    {
+        return $this->hasOne(GoingAbroadRequestModel::class, 'request_id', 'id');
     }
 }

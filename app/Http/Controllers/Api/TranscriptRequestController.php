@@ -43,13 +43,7 @@ class TranscriptRequestController extends ApiController
             $user = $request->user();
             $userId = $user->id;
 
-            $newRequest = $this->requestService->store([
-                'user_id' => $userId,
-                'code' => '12345',
-                'type' => AppRequest::TYPE_TRANSCRIPT,
-                'status' => AppRequest::STATUS_NOT_RECEIVED,
-                'receive_date' => now()
-            ]);
+            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_TRANSCRIPT);;
 
             $params = $request->all();
             $params['request_id'] = $newRequest->id;

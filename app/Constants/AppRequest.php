@@ -22,27 +22,58 @@ class AppRequest
     const TYPE_GOING_ABROAD = 14;
 
     const TYPES = [
-        self::TYPE_CERTIFICATE => 'certificate',
-        self::TYPE_TRANSCRIPT => 'transcript',
-        self::TYPE_PAUSE_EXAM => 'pause_exam',
-        self::TYPE_REVIEW_EXAM => 'review_exam',
-        self::TYPE_PAUSE_TUITION => 'pause_tuition',
-        self::TYPE_BORROW_FILE => 'borrow_file',
-        self::TYPE_SOCIAL_ASSISTANCE => 'social_assistance',
-        self::TYPE_BANK_LOAN => 'bank_loan',
-        self::TYPE_STUDENT_CARD => 'student_card',
-        self::TYPE_TEMP_CERTIFICATE => 'temp_certificate',
-        self::TYPE_TIME_LIMITED_ABSENCE => 'time_limited_absence',
-        self::TYPE_CONTINUE_STUDY => 'continue_study',
-        self::TYPE_STOP_STUDY => 'stop_study',
-        self::TYPE_GOING_ABROAD => 'going_abroad',
+        self::TYPE_CERTIFICATE => 'Giấy chứng nhận',
+        self::TYPE_TRANSCRIPT => 'Cấp bảng điểm',
+        self::TYPE_PAUSE_EXAM => 'Đề nghị Hoãn thi',
+        self::TYPE_REVIEW_EXAM => 'Xem lại bài thi',
+        self::TYPE_PAUSE_TUITION => 'Hoãn nộp học phí',
+        self::TYPE_BORROW_FILE => 'Mượn hồ sơ',
+        self::TYPE_SOCIAL_ASSISTANCE => 'XN trợ cấp xã hội',
+        self::TYPE_BANK_LOAN => 'XN vay vốn ngân hàng',
+        self::TYPE_STUDENT_CARD => 'Cấp lại thẻ sinh viên',
+        self::TYPE_TEMP_CERTIFICATE => 'CN tốt nghiệp tạm thời',
+        self::TYPE_TIME_LIMITED_ABSENCE => 'Nghỉ học có thời hạn',
+        self::TYPE_CONTINUE_STUDY => 'Tiếp tục học',
+        self::TYPE_STOP_STUDY => 'Xin thôi học',
+        self::TYPE_GOING_ABROAD => 'Xác nhận đi nước ngoài',
     ];
 
+    const STATUS_CANCELED = 0;
     const STATUS_NOT_RECEIVED = 1;
     const STATUS_RECEIVED = 2;
+    const STATUS_IN_PROGESS = 3;
+    const STATUS_COMPLETED = 4;
 
     const STATUSES = [
-        self::STATUS_NOT_RECEIVED => 'not_received',
-        self::STATUS_RECEIVED => 'received',
+        self::STATUS_CANCELED => 'Đã huỷ',
+        self::STATUS_NOT_RECEIVED => 'Chưa nhận',
+        self::STATUS_RECEIVED => 'Đã nhận',
+        self::STATUS_IN_PROGESS => 'Đang xử lý',
+        self::STATUS_COMPLETED => 'Đã hoàn thành',
+    ];
+
+    const DOCUMENT_NEED_REQUESTS = [
+        self::TYPE_PAUSE_EXAM,
+        self::TYPE_SOCIAL_ASSISTANCE,
+        self::TYPE_TIME_LIMITED_ABSENCE,
+        self::TYPE_STOP_STUDY,
+        self::TYPE_GOING_ABROAD
+    ];
+
+    const REQUEST_FEES = [
+        self::TYPE_CERTIFICATE => '20000',
+        self::TYPE_TRANSCRIPT => '20000',
+        self::TYPE_PAUSE_EXAM => '20000',
+        self::TYPE_REVIEW_EXAM => '20000',
+        self::TYPE_PAUSE_TUITION => '20000',
+        self::TYPE_BORROW_FILE => '20000',
+        self::TYPE_SOCIAL_ASSISTANCE => '20000',
+        self::TYPE_BANK_LOAN => '20000',
+        self::TYPE_STUDENT_CARD => '20000',
+        self::TYPE_TEMP_CERTIFICATE => '20000',
+        self::TYPE_TIME_LIMITED_ABSENCE => '20000',
+        self::TYPE_CONTINUE_STUDY => '20000',
+        self::TYPE_STOP_STUDY => '20000',
+        self::TYPE_GOING_ABROAD => '20000',
     ];
 }

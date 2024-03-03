@@ -1,0 +1,40 @@
+<?php
+
+use App\Models\UserModel;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class AddCodeToUsersTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('code');
+        });
+
+        $users = UserModel::all();
+        foreach ($users as $user) {
+            $userCode = explode("@", $user->email)[0];
+            $user->code = $userCode;
+            $user->save();
+        }
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn(['code']);
+        });
+    }
+}

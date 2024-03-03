@@ -43,13 +43,7 @@ class PauseTuitionRequestController extends ApiController
             $user = $request->user();
             $userId = $user->id;
 
-            $newRequest = $this->requestService->store([
-                'user_id' => $userId,
-                'code' => '12345',
-                'type' => AppRequest::TYPE_PAUSE_TUITION,
-                'status' => AppRequest::STATUS_NOT_RECEIVED,
-                'receive_date' => now()
-            ]);
+            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_PAUSE_TUITION);;
 
             $params = $request->all();
             $params['request_id'] = $newRequest->id;
