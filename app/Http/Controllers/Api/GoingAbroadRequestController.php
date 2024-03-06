@@ -42,7 +42,7 @@ class GoingAbroadRequestController extends ApiController
             $user = $request->user();
             $userId = $user->id;
 
-            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_GOING_ABROAD);;
+            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_GOING_ABROAD);
 
             $params = $request->all();
             $params['request_id'] = $newRequest->id;

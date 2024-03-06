@@ -43,7 +43,7 @@ class ReviewExamRequestController extends ApiController
             $user = $request->user();
             $userId = $user->id;
 
-            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_REVIEW_EXAM);;
+            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_REVIEW_EXAM);
 
             $params = $request->all();
             $params['request_id'] = $newRequest->id;

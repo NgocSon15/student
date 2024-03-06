@@ -17,6 +17,9 @@ use App\Http\Controllers\Api\TimeLimitedAbsenceRequestController;
 use App\Http\Controllers\Api\ContinueStudyRequestController;
 use App\Http\Controllers\Api\StopStudyRequestController;
 use App\Http\Controllers\Api\GoingAbroadRequestController;
+use App\Http\Controllers\Api\NotFinishedSubjectRequestController;
+use App\Http\Controllers\Api\TuitionExemptionRequestController;
+use App\Http\Controllers\Api\BusCardRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,4 +55,7 @@ Route::group([
     Route::post('requests/continue-study', [ContinueStudyRequestController::class, 'store']);
     Route::post('requests/stop-study', [StopStudyRequestController::class, 'store']);
     Route::post('requests/going-abroad', [GoingAbroadRequestController::class, 'store']);
+    Route::post('requests/not-finished-subject', [NotFinishedSubjectRequestController::class, 'store']);
+    Route::post('requests/tuition-exemption', [TuitionExemptionRequestController::class, 'store']);
+    Route::post('requests/bus-card', [BusCardRequestController::class, 'store']);
 });

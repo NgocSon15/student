@@ -42,7 +42,7 @@ class ContinueStudyRequestController extends ApiController
             $user = $request->user();
             $userId = $user->id;
 
-            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_CONTINUE_STUDY);;
+            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_CONTINUE_STUDY);
 
             $params = $request->all();
             $params['request_id'] = $newRequest->id;

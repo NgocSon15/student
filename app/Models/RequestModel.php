@@ -98,4 +98,19 @@ class RequestModel extends Model
     {
         return $this->hasOne(GoingAbroadRequestModel::class, 'request_id', 'id');
     }
+
+    public function notFinishedSubjectRequest()
+    {
+        return $this->hasOne(NotFinishedSubjectRequestModel::class, 'request_id', 'id');
+    }
+
+    public function tuitionExemptionRequest()
+    {
+        return $this->hasOne(TuitionExemptionRequestModel::class, 'request_id', 'id');
+    }
+
+    public function busCardRequest()
+    {
+        return $this->hasOne(BusCardRequestModel::class, 'request_id', 'id');
+    }
 }

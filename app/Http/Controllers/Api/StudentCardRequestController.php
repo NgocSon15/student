@@ -44,7 +44,7 @@ class StudentCardRequestController extends ApiController
             $user = $request->user();
             $userId = $user->id;
 
-            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_STUDENT_CARD);;
+            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_STUDENT_CARD);
 
             $params = $request->all();
             $params['request_id'] = $newRequest->id;

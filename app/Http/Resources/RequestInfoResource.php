@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use App\Constants\BankLoanRequest;
 use App\Constants\BorrowFileRequest;
+use App\Constants\BusCardRequest;
 use App\Constants\CertificateRequest;
 use App\Constants\TranscriptRequest;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -75,6 +76,21 @@ class RequestInfoResource extends JsonResource
         }
         if (isset($this->transcript_type) && $this->transcript_type !== null) {
             $returnData['transcript_type'] = TranscriptRequest::TYPES[$this->transcript_type];
+        }
+        if (isset($this->bus_number) && $this->bus_number !== null) {
+            $returnData['bus_number'] = $this->bus_number ?? null;
+        }
+        if (isset($this->interline_bus_type) && $this->interline_bus_type !== null) {
+            $returnData['interline_bus_type'] = BusCardRequest::INTERLINE_BUS_TYPE[$this->interline_bus_type];
+        }
+        if (isset($this->address) && $this->address !== null) {
+            $returnData['student_address'] = $this->address ?? null;
+        }
+        if (isset($this->phone_number) && $this->phone_number !== null) {
+            $returnData['phone_contact'] = $this->phone_number ?? null;
+        }
+        if (isset($this->process_place) && $this->process_place !== null) {
+            $returnData['receiving_place'] = $this->process_place ?? null;
         }
         return $returnData;
     }

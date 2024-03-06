@@ -43,7 +43,7 @@ class TempCertificateRequestController extends ApiController
             $user = $request->user();
             $userId = $user->id;
 
-            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_TEMP_CERTIFICATE);;
+            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_TEMP_CERTIFICATE);
 
             $params = $request->all();
             $params['request_id'] = $newRequest->id;

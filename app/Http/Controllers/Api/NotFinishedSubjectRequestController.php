@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
-use App\Services\PauseExamRequestService;
+use App\Services\NotFinishedSubjectRequestService;
 use App\Services\RequestService;
-use App\Http\Requests\Api\PauseExamRequestRequest;
+use App\Http\Requests\Api\NotFinishedSubjectRequestRequest;
 use App\Constants\AppRequest;
 use Illuminate\Support\Facades\DB;
 use App\Traits\ApiResponse;
 use App\Http\Resources\RequestResource;
-use Illuminate\Support\Facades\Storage;
 
-class PauseExamRequestController extends ApiController
+class NotFinishedSubjectRequestController extends ApiController
 {
     use ApiResponse;
     /**
@@ -20,36 +18,36 @@ class PauseExamRequestController extends ApiController
      */
     private $requestService;
     /**
-     * @var PauseExamRequestService
+     * @var NotFinishedSubjectRequestService
      */
-    private $pauseExamRequestService;
+    private $notFinishedSubjectRequestService;
 
     public function __construct(
         RequestService $requestService,
-        PauseExamRequestService $pauseExamRequestService
+        NotFinishedSubjectRequestService $notFinishedSubjectRequestService
     ) {
         $this->requestService = $requestService;
-        $this->pauseExamRequestService = $pauseExamRequestService;
+        $this->notFinishedSubjectRequestService = $notFinishedSubjectRequestService;
         parent::__construct();
     }
 
     /**
-     * @param PauseExamRequestRequest $request
+     * @param NotFinishedSubjectRequestRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PauseExamRequestRequest $request)
+    public function store(NotFinishedSubjectRequestRequest $request)
     {
         DB::beginTransaction();
         try {
             $user = $request->user();
             $userId = $user->id;
 
-            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_PAUSE_EXAM);
+            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_NOT_FINISHED_SUBJECT);
 
             $params = $request->all();
             $params['request_id'] = $newRequest->id;
 
-            $this->pauseExamRequestService->store($params);
+            $this->notFinishedSubjectRequestService->store($params);
             
             DB::commit();
             return $this->sendSuccess(

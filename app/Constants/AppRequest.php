@@ -20,6 +20,9 @@ class AppRequest
     const TYPE_CONTINUE_STUDY = 12;
     const TYPE_STOP_STUDY = 13;
     const TYPE_GOING_ABROAD = 14;
+    const TYPE_NOT_FINISHED_SUBJECT = 15;
+    const TYPE_TUITION_EXEMPTION = 16;
+    const TYPE_BUS_CARD = 17;
 
     const TYPES = [
         self::TYPE_CERTIFICATE => 'Giấy chứng nhận',
@@ -36,6 +39,9 @@ class AppRequest
         self::TYPE_CONTINUE_STUDY => 'Tiếp tục học',
         self::TYPE_STOP_STUDY => 'Xin thôi học',
         self::TYPE_GOING_ABROAD => 'Xác nhận đi nước ngoài',
+        self::TYPE_NOT_FINISHED_SUBJECT => 'Chứng nhận còn nợ môn',
+        self::TYPE_TUITION_EXEMPTION => 'XN miễn giảm HP',
+        self::TYPE_BUS_CARD => 'Đề nghị làm vé xe buýt',
     ];
 
     const STATUS_CANCELED = 0;
@@ -57,7 +63,8 @@ class AppRequest
         self::TYPE_SOCIAL_ASSISTANCE,
         self::TYPE_TIME_LIMITED_ABSENCE,
         self::TYPE_STOP_STUDY,
-        self::TYPE_GOING_ABROAD
+        self::TYPE_GOING_ABROAD,
+        self::TYPE_TUITION_EXEMPTION,
     ];
 
     const REQUEST_FEES = [
@@ -75,5 +82,8 @@ class AppRequest
         self::TYPE_CONTINUE_STUDY => '20000',
         self::TYPE_STOP_STUDY => '20000',
         self::TYPE_GOING_ABROAD => '20000',
+        self::TYPE_NOT_FINISHED_SUBJECT => '20000',
+        self::TYPE_TUITION_EXEMPTION => '20000',
+        self::TYPE_BUS_CARD => '20000',
     ];
 }

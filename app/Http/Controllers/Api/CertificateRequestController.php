@@ -43,7 +43,7 @@ class CertificateRequestController extends ApiController
             $user = $request->user();
             $userId = $user->id;
 
-            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_CERTIFICATE);;
+            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_CERTIFICATE);
 
             $params = $request->all();
             $params['request_id'] = $newRequest->id;

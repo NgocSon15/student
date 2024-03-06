@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
-use App\Services\PauseExamRequestService;
+use App\Services\BusCardRequestService;
 use App\Services\RequestService;
-use App\Http\Requests\Api\PauseExamRequestRequest;
+use App\Http\Requests\Api\BusCardRequestRequest;
 use App\Constants\AppRequest;
 use Illuminate\Support\Facades\DB;
 use App\Traits\ApiResponse;
 use App\Http\Resources\RequestResource;
-use Illuminate\Support\Facades\Storage;
 
-class PauseExamRequestController extends ApiController
+class BusCardRequestController extends ApiController
 {
     use ApiResponse;
     /**
@@ -20,36 +18,36 @@ class PauseExamRequestController extends ApiController
      */
     private $requestService;
     /**
-     * @var PauseExamRequestService
+     * @var BusCardRequestService
      */
-    private $pauseExamRequestService;
+    private $busCardRequestService;
 
     public function __construct(
         RequestService $requestService,
-        PauseExamRequestService $pauseExamRequestService
+        BusCardRequestService $busCardRequestService
     ) {
         $this->requestService = $requestService;
-        $this->pauseExamRequestService = $pauseExamRequestService;
+        $this->busCardRequestService = $busCardRequestService;
         parent::__construct();
     }
 
     /**
-     * @param PauseExamRequestRequest $request
+     * @param BusCardRequestRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PauseExamRequestRequest $request)
+    public function store(BusCardRequestRequest $request)
     {
         DB::beginTransaction();
         try {
             $user = $request->user();
             $userId = $user->id;
 
-            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_PAUSE_EXAM);
+            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_BUS_CARD);
 
             $params = $request->all();
             $params['request_id'] = $newRequest->id;
 
-            $this->pauseExamRequestService->store($params);
+            $this->busCardRequestService->store($params);
             
             DB::commit();
             return $this->sendSuccess(

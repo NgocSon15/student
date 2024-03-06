@@ -56,7 +56,16 @@ class RequestResource extends JsonResource
                 break;
             case AppRequest::TYPE_GOING_ABROAD:
                 $requestInfo = $this->goingAbroadRequest ?? null;
-                break;  
+                break;
+            case AppRequest::TYPE_NOT_FINISHED_SUBJECT:
+                $requestInfo = $this->notFinishedSubjectRequest ?? null;
+                break;
+            case AppRequest::TYPE_TUITION_EXEMPTION:
+                $requestInfo = $this->tuitionExemptionRequest ?? null;
+                break;
+            case AppRequest::TYPE_BUS_CARD:
+                $requestInfo = $this->busCardRequest ?? null;
+                break;
         }
         return [
             'id' => $this->id ?? null,

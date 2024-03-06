@@ -42,7 +42,7 @@ class StopStudyRequestController extends ApiController
             $user = $request->user();
             $userId = $user->id;
 
-            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_STOP_STUDY);;
+            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_STOP_STUDY);
 
             $params = $request->all();
             $params['request_id'] = $newRequest->id;

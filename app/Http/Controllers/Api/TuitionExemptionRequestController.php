@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
-use App\Services\PauseExamRequestService;
+use App\Services\TuitionExemptionRequestService;
 use App\Services\RequestService;
-use App\Http\Requests\Api\PauseExamRequestRequest;
+use App\Http\Requests\Api\TuitionExemptionRequestRequest;
 use App\Constants\AppRequest;
 use Illuminate\Support\Facades\DB;
 use App\Traits\ApiResponse;
 use App\Http\Resources\RequestResource;
-use Illuminate\Support\Facades\Storage;
 
-class PauseExamRequestController extends ApiController
+class TuitionExemptionRequestController extends ApiController
 {
     use ApiResponse;
     /**
@@ -20,36 +18,36 @@ class PauseExamRequestController extends ApiController
      */
     private $requestService;
     /**
-     * @var PauseExamRequestService
+     * @var TuitionExemptionRequestService
      */
-    private $pauseExamRequestService;
+    private $tuitionExemptionRequestService;
 
     public function __construct(
         RequestService $requestService,
-        PauseExamRequestService $pauseExamRequestService
+        TuitionExemptionRequestService $tuitionExemptionRequestService
     ) {
         $this->requestService = $requestService;
-        $this->pauseExamRequestService = $pauseExamRequestService;
+        $this->tuitionExemptionRequestService = $tuitionExemptionRequestService;
         parent::__construct();
     }
 
     /**
-     * @param PauseExamRequestRequest $request
+     * @param TuitionExemptionRequestRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PauseExamRequestRequest $request)
+    public function store(TuitionExemptionRequestRequest $request)
     {
         DB::beginTransaction();
         try {
             $user = $request->user();
             $userId = $user->id;
 
-            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_PAUSE_EXAM);
+            $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_TUITION_EXEMPTION);
 
             $params = $request->all();
             $params['request_id'] = $newRequest->id;
 
-            $this->pauseExamRequestService->store($params);
+            $this->tuitionExemptionRequestService->store($params);
             
             DB::commit();
             return $this->sendSuccess(
