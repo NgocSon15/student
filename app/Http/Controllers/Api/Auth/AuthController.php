@@ -5,10 +5,9 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Facades\JWTAuth;
-use App\Models\User;
 use App\Http\Controllers\Controller;
-use Validator;
-
+use App\Http\Resources\UserResource;
+use App\Models\UserModel;
 
 class AuthController extends Controller
 {
@@ -20,15 +19,17 @@ class AuthController extends Controller
             return response()->json(['error' => 'Invalid credentials'], 401);
         }
 
-        return $this->respondWithToken($token);
+        return $this->respondWithToken($token, $request->email);
     }
 
-    protected function respondWithToken($token)
+    protected function respondWithToken($token, $email)
     {
+        $user = UserModel::where('email', $email)->first();
         return response()->json([
             'token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth('api')->factory()->getTTL() * 60
+            'expires_in' => auth('api')->factory()->getTTL() * 3600,
+            'user' => $user ? new UserResource($user) : []
         ]);
     }
 

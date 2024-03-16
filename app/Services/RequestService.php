@@ -18,16 +18,21 @@ class RequestService
         $limit = $params['limit'];
         $offset = $params['offset'];
         $type = $params['type'];
+        $status = $params['status'];
 
         $query = RequestModel::query();
 
         if ($type) {
             $query->where('type', $type);
         }
+
+        if ($status) {
+            $query->where('status', $status);
+        }
         
         $total = $query->count();
 
-        $requests = $query->skip(($offset - 1) * $limit)->take($limit)->get();
+        $requests = $query->orderBy('id', 'DESC')->skip(($offset - 1) * $limit)->take($limit)->get();
 
         return [$total, $requests];
     }

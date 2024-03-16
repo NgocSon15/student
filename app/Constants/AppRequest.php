@@ -45,15 +45,11 @@ class AppRequest
     ];
 
     const STATUS_CANCELED = 0;
-    const STATUS_NOT_RECEIVED = 1;
-    const STATUS_RECEIVED = 2;
-    const STATUS_IN_PROGESS = 3;
-    const STATUS_COMPLETED = 4;
+    const STATUS_IN_PROGESS = 1;
+    const STATUS_COMPLETED = 2;
 
     const STATUSES = [
         self::STATUS_CANCELED => 'Đã huỷ',
-        self::STATUS_NOT_RECEIVED => 'Chưa nhận',
-        self::STATUS_RECEIVED => 'Đã nhận',
         self::STATUS_IN_PROGESS => 'Đang xử lý',
         self::STATUS_COMPLETED => 'Đã hoàn thành',
     ];
