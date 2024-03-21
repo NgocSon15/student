@@ -18,6 +18,7 @@ class CreateBankLoanRequestsTable extends Migration
             $table->integer('request_id');
             $table->text('reason')->nullable();
             $table->integer('tuition_type');
+            $table->integer('fee')->nullable();
             $table->timestamps();
         });
     }

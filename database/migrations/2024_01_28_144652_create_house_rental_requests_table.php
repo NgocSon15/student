@@ -25,6 +25,7 @@ class CreateHouseRentalRequestsTable extends Migration
             $table->string('email');
             $table->string('contact_method');
             $table->text('files');
+            $table->integer('fee')->nullable();
             $table->timestamps();
         });
     }

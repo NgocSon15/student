@@ -21,6 +21,7 @@ class CreateBusCardRequestsTable extends Migration
             $table->string('address');
             $table->string('phone_number');
             $table->string('process_place');
+            $table->integer('fee')->nullable();
             $table->timestamps();
         });
     }

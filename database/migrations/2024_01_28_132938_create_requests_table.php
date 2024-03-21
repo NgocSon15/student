@@ -19,9 +19,9 @@ class CreateRequestsTable extends Migration
             $table->string('code');
             $table->integer('type');
             $table->integer('status');
-            $table->string('fee')->nullable();
-            $table->string('processing_place')->nullable();
+            $table->integer('processing_place')->default(1);
             $table->timestamp('receive_date')->nullable();
+            $table->integer('expire_in')->default(5);
             $table->timestamps();
         });
     }

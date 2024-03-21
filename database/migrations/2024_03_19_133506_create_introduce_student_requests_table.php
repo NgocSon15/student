@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePauseExamRequestsTable extends Migration
+class CreateIntroduceStudentRequestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreatePauseExamRequestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pause_exam_requests', function (Blueprint $table) {
+        Schema::create('introduce_student_requests', function (Blueprint $table) {
             $table->id();
-            $table->integer('request_id');
-            $table->string('subject_name');
-            $table->string('teacher_name');
-            $table->date('exam_date');
+            $table->integer('learning_program');
+            $table->string('practice_place');
             $table->text('reason')->nullable();
             $table->text('files');
             $table->integer('fee')->nullable();
@@ -33,6 +31,6 @@ class CreatePauseExamRequestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pause_exam_requests');
+        Schema::dropIfExists('introduce_student_requests');
     }
 }

@@ -41,12 +41,12 @@ class ReviewExamRequestController extends ApiController
         DB::beginTransaction();
         try {
             $user = $request->user();
-            $userId = $user->id;
 
             $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_REVIEW_EXAM);
 
             $params = $request->all();
             $params['request_id'] = $newRequest->id;
+            $params['fee'] = AppRequest::REQUEST_FEES[AppRequest::TYPE_REVIEW_EXAM];
 
             $this->reviewExamRequestService->store($params);
             

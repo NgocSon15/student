@@ -16,7 +16,8 @@ class PauseExamRequestModel extends Model
         'teacher_name',
         'exam_date',
         'reason',
-        'files'
+        'files',
+        'fee',
     ];
 
     protected $casts = [

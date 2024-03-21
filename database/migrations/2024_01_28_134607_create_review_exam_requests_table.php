@@ -20,6 +20,7 @@ class CreateReviewExamRequestsTable extends Migration
             $table->string('semester');
             $table->string('school_year');
             $table->text('reason')->nullable();
+            $table->integer('fee')->nullable();
             $table->timestamps();
         });
     }

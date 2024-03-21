@@ -13,7 +13,8 @@ class BankLoanRequestModel extends Model
     protected $fillable = [
         'request_id',
         'reason',
-        'tuition_type'
+        'tuition_type',
+        'fee',
     ];
 
     public function toArray()

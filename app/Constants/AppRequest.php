@@ -6,6 +6,16 @@ class AppRequest
 {
     const LIMIT = 15;
 
+    const DEFAULT_EXPIRE_DAY = 5;
+    
+    const ACTIVE = 1;
+    const INACTIVE = 2;
+
+    const COMMON_STATUS = [
+        self::ACTIVE => 'active',
+        self::INACTIVE => 'inactive',
+    ];
+
     const TYPE_CERTIFICATE = 1;
     const TYPE_TRANSCRIPT = 2;
     const TYPE_PAUSE_EXAM = 3;

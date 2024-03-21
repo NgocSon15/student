@@ -13,7 +13,8 @@ class TuitionExemptionRequestModel extends Model
     protected $fillable = [
         'request_id',
         'reason',
-        'files'
+        'files',
+        'fee',
     ];
 
     protected $casts = [

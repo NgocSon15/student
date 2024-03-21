@@ -40,12 +40,12 @@ class BusCardRequestController extends ApiController
         DB::beginTransaction();
         try {
             $user = $request->user();
-            $userId = $user->id;
 
             $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_BUS_CARD);
 
             $params = $request->all();
             $params['request_id'] = $newRequest->id;
+            $params['fee'] = AppRequest::REQUEST_FEES[AppRequest::TYPE_BUS_CARD];
 
             $this->busCardRequestService->store($params);
             

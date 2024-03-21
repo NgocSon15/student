@@ -38,10 +38,10 @@ class RequestInfoResource extends JsonResource
             $returnData['other_document'] = $this->other_file;
         }
         if (isset($this->start_date) && $this->start_date !== null) {
-            $returnData['start_date'] = $this->start_date->format('Y-m-d');
+            $returnData['start_date'] = $this->start_date->format('Y-m-d H:i:s');
         }
         if (isset($this->end_date) && $this->end_date !== null) {
-            $returnData['end_date'] = $this->end_date->format('Y-m-d');
+            $returnData['end_date'] = $this->end_date->format('Y-m-d H:i:s');
         }
         if (isset($this->certificate_type) && $this->certificate_type !== null) {
             $returnData['certificate_type'] = CertificateRequest::TYPES[$this->certificate_type];
@@ -60,7 +60,7 @@ class RequestInfoResource extends JsonResource
             $returnData['lecturer'] = $this->teacher_name ?? null;
         }
         if (isset($this->exam_date) && $this->exam_date !== null) {
-            $returnData['exam_date'] = $this->exam_date->format('Y-m-d');
+            $returnData['exam_date'] = $this->exam_date->format('Y-m-d H:i:s');
         }
         if (isset($this->semester) && $this->semester !== null) {
             $returnData['semester'] = $this->semester ?? null;

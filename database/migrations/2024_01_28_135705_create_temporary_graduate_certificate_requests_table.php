@@ -19,6 +19,7 @@ class CreateTemporaryGraduateCertificateRequestsTable extends Migration
             $table->integer('number_of_copies_vi');
             $table->integer('number_of_copies_en');
             $table->text('reason')->nullable();
+            $table->integer('fee')->nullable();
             $table->timestamps();
         });
     }

@@ -16,7 +16,8 @@ class BorrowFileRequestModel extends Model
         'other_file',
         'start_date',
         'end_date',
-        'reason'
+        'reason',
+        'fee',
     ];
 
     protected $casts = [

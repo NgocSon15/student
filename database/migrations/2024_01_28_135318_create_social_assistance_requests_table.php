@@ -18,6 +18,7 @@ class CreateSocialAssistanceRequestsTable extends Migration
             $table->integer('request_id');
             $table->text('reason')->nullable();
             $table->text('files');
+            $table->integer('fee')->nullable();
             $table->timestamps();
         });
     }

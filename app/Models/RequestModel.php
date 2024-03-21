@@ -15,9 +15,9 @@ class RequestModel extends Model
         'code',
         'type',
         'status',
-        'fee',
         'processing_place',
-        'receive_date'
+        'receive_date',
+        'expire_in',
     ];
     protected $cast = [
         'receive_date' => 'datetime'
@@ -112,5 +112,15 @@ class RequestModel extends Model
     public function busCardRequest()
     {
         return $this->hasOne(BusCardRequestModel::class, 'request_id', 'id');
+    }
+
+    public function processingPlace()
+    {
+        return $this->belongsTo(ProcessingPlaceModel::class, 'processing_place', 'id');
+    }
+
+    public function requestType()
+    {
+        return $this->belongsTo(RequestTypeModel::class, 'type', 'type');
     }
 }

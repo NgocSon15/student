@@ -5,20 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SocialAssistanceRequestModel extends Model
+class ProcessingPlaceModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'social_assistance_requests';
+    protected $table = 'processing_places';
     protected $fillable = [
-        'request_id',
-        'reason',
-        'files',
-        'fee',
-    ];
-
-    protected $casts = [
-        'files' => 'array'
+        'name',
     ];
 
     public function toArray()

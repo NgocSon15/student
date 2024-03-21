@@ -19,7 +19,7 @@ class StopStudyRequestRequest extends ApiRequest
         return [
             'reason' => ['nullable'],
             'files' => ['required', 'array'],
-            'files.*' => ['required']
+            'files.*' => ['required', 'file']
         ];
     }
 

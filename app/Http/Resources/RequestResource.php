@@ -71,19 +71,23 @@ class RequestResource extends JsonResource
             'id' => $this->id ?? null,
             'code' => $this->code,
             'user' => new UserResource($user),
-            'type' => $this->type ? [
-                'id' => $this->type,
-                'name' => AppRequest::TYPES[$this->type]
+            'type' => $this->requestType ? [
+                'id' => $this->requestType->type,
+                'name' => $this->requestType->name
             ] : null,
             'document_need' => in_array($this->type, AppRequest::DOCUMENT_NEED_REQUESTS) ? "Có" : "Không",
             'status' => $this->status ? [
                 'id' => $this->status,
                 'name' => AppRequest::STATUSES[$this->status]
             ] : null,
-            'fee' => $this->fee ?? 0,
-            'processing_place' => $this->processing_place ?? null,
+            'fee' => !empty($requestInfo) ? $requestInfo->fee : 0,
+            'processing_place' => $this->processingPlace ? [
+                'id' => $this->processingPlace->id,
+                'name' => $this->processingPlace->name
+            ] : null,
             'created_date' => $this->created_at->format('Y-m-d H:i:s'),
             'receive_date' => $this->receive_date ?? null,
+            'expire_in' => $this->expire_in ?? AppRequest::DEFAULT_EXPIRE_DAY,
             'info' => !empty($requestInfo) ? new RequestInfoResource($requestInfo) : null,
         ];
     }

@@ -41,12 +41,12 @@ class CertificateRequestController extends ApiController
         DB::beginTransaction();
         try {
             $user = $request->user();
-            $userId = $user->id;
 
             $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_CERTIFICATE);
 
             $params = $request->all();
             $params['request_id'] = $newRequest->id;
+            $params['fee'] = AppRequest::REQUEST_FEES[AppRequest::TYPE_CERTIFICATE];
 
             $this->certificateRequestService->store($params);
             

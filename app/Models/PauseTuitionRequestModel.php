@@ -15,7 +15,8 @@ class PauseTuitionRequestModel extends Model
         'semester',
         'school_year',
         'end_date',
-        'reason'
+        'reason',
+        'fee',
     ];
 
     protected $casts = [

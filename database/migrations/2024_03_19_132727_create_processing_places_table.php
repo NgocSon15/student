@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStopStudyRequestsTable extends Migration
+class CreateProcessingPlacesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateStopStudyRequestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('stop_study_requests', function (Blueprint $table) {
+        Schema::create('processing_places', function (Blueprint $table) {
             $table->id();
-            $table->integer('request_id');
-            $table->text('reason')->nullable();
-            $table->text('files');
-            $table->integer('fee')->nullable();
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateStopStudyRequestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stop_study_requests');
+        Schema::dropIfExists('processing_places');
     }
 }

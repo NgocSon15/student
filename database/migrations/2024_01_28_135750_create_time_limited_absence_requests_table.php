@@ -20,6 +20,7 @@ class CreateTimeLimitedAbsenceRequestsTable extends Migration
             $table->date('end_date');
             $table->text('reason')->nullable();
             $table->text('files');
+            $table->integer('fee')->nullable();
             $table->timestamps();
         });
     }

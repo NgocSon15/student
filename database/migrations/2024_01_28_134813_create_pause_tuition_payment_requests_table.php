@@ -20,6 +20,7 @@ class CreatePauseTuitionPaymentRequestsTable extends Migration
             $table->string('school_year');
             $table->date('end_date');
             $table->text('reason')->nullable();
+            $table->integer('fee')->nullable();
             $table->timestamps();
         });
     }

@@ -44,8 +44,8 @@ class RequestService
             'code' => '12345',
             'type' => $type,
             'status' => AppRequest::STATUS_IN_PROGESS,
-            'fee' => AppRequest::REQUEST_FEES[$type],
-            'processing_place' => 'Phòng Công tác Sinh viên',
+            'processing_place' => 1,
+            'expire_in' => AppRequest::DEFAULT_EXPIRE_DAY,
             // 'receive_date' => now()
         ]);
     }

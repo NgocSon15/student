@@ -10,6 +10,7 @@ use App\Constants\AppRequest;
 use Illuminate\Support\Facades\DB;
 use App\Traits\ApiResponse;
 use App\Http\Resources\RequestResource;
+use App\Models\RequestTypeModel;
 
 class BankLoanRequestController extends ApiController
 {
@@ -41,12 +42,12 @@ class BankLoanRequestController extends ApiController
         DB::beginTransaction();
         try {
             $user = $request->user();
-            $userId = $user->id;
 
             $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_BANK_LOAN);
 
             $params = $request->all();
             $params['request_id'] = $newRequest->id;
+            $params['fee'] = AppRequest::REQUEST_FEES[AppRequest::TYPE_BANK_LOAN];
 
             $this->bankLoanRequestService->store($params);
             

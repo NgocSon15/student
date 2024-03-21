@@ -25,7 +25,7 @@ class PauseExamRequestRequest extends ApiRequest
             'exam_date' => ['required'],
             'reason' => ['nullable'],
             'files' => ['required', 'array'],
-            'files.*' => ['required']
+            'files.*' => ['required', 'file']
         ];
     }
 

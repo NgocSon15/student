@@ -19,6 +19,7 @@ class CreateTrainingPointConfirmRequestsTable extends Migration
             $table->integer('program_type');
             $table->string('school_year');
             $table->text('reason')->nullable();
+            $table->integer('fee')->nullable();
             $table->timestamps();
         });
     }

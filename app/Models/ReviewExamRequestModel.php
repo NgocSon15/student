@@ -15,7 +15,8 @@ class ReviewExamRequestModel extends Model
         'subject_name',
         'semester',
         'school_year',
-        'reason'
+        'reason',
+        'fee',
     ];
 
     public function toArray()

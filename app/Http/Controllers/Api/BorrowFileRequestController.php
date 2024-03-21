@@ -41,12 +41,12 @@ class BorrowFileRequestController extends ApiController
         DB::beginTransaction();
         try {
             $user = $request->user();
-            $userId = $user->id;
 
             $newRequest = $this->requestService->createRequest($user, AppRequest::TYPE_BORROW_FILE);
 
             $params = $request->all();
             $params['request_id'] = $newRequest->id;
+            $params['fee'] = AppRequest::REQUEST_FEES[AppRequest::TYPE_BORROW_FILE];
 
             $this->borrowFileRequestService->store($params);
             

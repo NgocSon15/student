@@ -15,7 +15,8 @@ class TimeLimitedAbsenceRequestModel extends Model
         'start_date',
         'end_date',
         'reason',
-        'files'
+        'files',
+        'fee',
     ];
 
     protected $casts = [

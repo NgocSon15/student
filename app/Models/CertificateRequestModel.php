@@ -15,7 +15,8 @@ class CertificateRequestModel extends Model
         'certificate_type',
         'number_of_copies_vi',
         'number_of_copies_en',
-        'reason'
+        'reason',
+        'fee',
     ];
 
     public function toArray()

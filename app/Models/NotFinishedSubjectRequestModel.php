@@ -14,7 +14,8 @@ class NotFinishedSubjectRequestModel extends Model
         'request_id',
         'number_of_copies_vi',
         'number_of_copies_en',
-        'reason'
+        'reason',
+        'fee',
     ];
 
     public function toArray()

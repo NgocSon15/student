@@ -17,6 +17,7 @@ class BusCardRequestModel extends Model
         'address',
         'phone_number',
         'process_place',
+        'fee',
     ];
 
     public function toArray()

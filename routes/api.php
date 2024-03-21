@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\RequestController;
 use App\Http\Controllers\Api\CertificateRequestController;
 use App\Http\Controllers\Api\TranscriptRequestController;
 use App\Http\Controllers\Api\PauseExamRequestController;
+use App\Http\Controllers\Api\ReviewExamRequestController;
 use App\Http\Controllers\Api\PauseTuitionRequestController;
 use App\Http\Controllers\Api\BorrowFileRequestController;
 use App\Http\Controllers\Api\SocialAssistanceRequestController;

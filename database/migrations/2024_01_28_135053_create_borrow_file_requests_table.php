@@ -21,6 +21,7 @@ class CreateBorrowFileRequestsTable extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->text('reason')->nullable();
+            $table->integer('fee')->nullable();
             $table->timestamps();
         });
     }
