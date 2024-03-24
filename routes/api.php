@@ -21,6 +21,9 @@ use App\Http\Controllers\Api\GoingAbroadRequestController;
 use App\Http\Controllers\Api\NotFinishedSubjectRequestController;
 use App\Http\Controllers\Api\TuitionExemptionRequestController;
 use App\Http\Controllers\Api\BusCardRequestController;
+use App\Http\Controllers\Api\HouseRentalRequestController;
+use App\Http\Controllers\Api\PointConfirmRequestController;
+use App\Http\Controllers\Api\IntroduceStudentRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,4 +62,7 @@ Route::group([
     Route::post('requests/not-finished-subject', [NotFinishedSubjectRequestController::class, 'store']);
     Route::post('requests/tuition-exemption', [TuitionExemptionRequestController::class, 'store']);
     Route::post('requests/bus-card', [BusCardRequestController::class, 'store']);
+    Route::post('requests/house-rental', [HouseRentalRequestController::class, 'store']);
+    Route::post('requests/point-confirm', [PointConfirmRequestController::class, 'store']);
+    Route::post('requests/introduce-student', [IntroduceStudentRequestController::class, 'store']);
 });

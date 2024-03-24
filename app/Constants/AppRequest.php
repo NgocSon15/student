@@ -33,6 +33,9 @@ class AppRequest
     const TYPE_NOT_FINISHED_SUBJECT = 15;
     const TYPE_TUITION_EXEMPTION = 16;
     const TYPE_BUS_CARD = 17;
+    const TYPE_HOUSE_RENTAL = 18;
+    const TYPE_POINT_CONFIRM = 19;
+    const TYPE_INTRODUCE_STUDENT = 20;
 
     const TYPES = [
         self::TYPE_CERTIFICATE => 'Giấy chứng nhận',
@@ -52,6 +55,9 @@ class AppRequest
         self::TYPE_NOT_FINISHED_SUBJECT => 'Chứng nhận còn nợ môn',
         self::TYPE_TUITION_EXEMPTION => 'XN miễn giảm HP',
         self::TYPE_BUS_CARD => 'Đề nghị làm vé xe buýt',
+        self::TYPE_HOUSE_RENTAL => 'Đề nghị thuê nhà ở',
+        self::TYPE_POINT_CONFIRM => 'XN điểm rèn luyện',
+        self::TYPE_INTRODUCE_STUDENT => 'Giới thiệu sinh viên',
     ];
 
     const STATUS_CANCELED = 0;
@@ -91,5 +97,8 @@ class AppRequest
         self::TYPE_NOT_FINISHED_SUBJECT => '20000',
         self::TYPE_TUITION_EXEMPTION => '20000',
         self::TYPE_BUS_CARD => '20000',
+        self::TYPE_HOUSE_RENTAL => '20000',
+        self::TYPE_POINT_CONFIRM => '20000',
+        self::TYPE_INTRODUCE_STUDENT => '20000',
     ];
 }

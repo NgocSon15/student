@@ -20,7 +20,7 @@ class CreateCertificateRequestsTable extends Migration
             $table->integer('number_of_copies_vi');
             $table->integer('number_of_copies_en');
             $table->text('reason')->nullable();
-            $table->string('fee')->nullable();
+            $table->integer('fee')->nullable();
             $table->timestamps();
         });
     }

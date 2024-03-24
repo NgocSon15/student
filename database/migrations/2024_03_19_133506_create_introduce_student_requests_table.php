@@ -15,6 +15,7 @@ class CreateIntroduceStudentRequestsTable extends Migration
     {
         Schema::create('introduce_student_requests', function (Blueprint $table) {
             $table->id();
+            $table->integer('request_id');
             $table->integer('learning_program');
             $table->string('practice_place');
             $table->text('reason')->nullable();

@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests\Api;
 
-use App\Constants\BusCardRequest;
-
-class BusCardRequestRequest extends ApiRequest
+class HouseRentalRequestRequest extends ApiRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -19,11 +17,16 @@ class BusCardRequestRequest extends ApiRequest
     public function rules()
     {
         return [
-            'bus_number' => ['required_if:interline_bus_type,1'],
-            'interline_bus_type' => ['required', 'integer', 'in:' . implode(',', array_keys(BusCardRequest::INTERLINE_BUS_TYPE))],
+            'name' => ['required'],
+            'start_date' => ['required'],
+            'end_date' => ['required'],
+            'priority' => ['required'],
             'address' => ['required'],
             'phone_number' => ['required', 'min:10', 'max:11'],
-            'process_place' => ['required'],
+            'email' => ['required'],
+            'contact_method' => ['required'],
+            'files' => ['required', 'array'],
+            'files.*' => ['required', 'file']
         ];
     }
 

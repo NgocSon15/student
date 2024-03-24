@@ -114,6 +114,21 @@ class RequestModel extends Model
         return $this->hasOne(BusCardRequestModel::class, 'request_id', 'id');
     }
 
+    public function houseRentalRequest()
+    {
+        return $this->hasOne(HouseRentalRequestModel::class, 'request_id', 'id');
+    }
+
+    public function pointConfirmRequest()
+    {
+        return $this->hasOne(PointConfirmRequestModel::class, 'request_id', 'id');
+    }
+
+    public function introduceStudentRequest()
+    {
+        return $this->hasOne(IntroduceStudentRequestModel::class, 'request_id', 'id');
+    }
+
     public function processingPlace()
     {
         return $this->belongsTo(ProcessingPlaceModel::class, 'processing_place', 'id');

@@ -6,6 +6,8 @@ use App\Constants\BankLoanRequest;
 use App\Constants\BorrowFileRequest;
 use App\Constants\BusCardRequest;
 use App\Constants\CertificateRequest;
+use App\Constants\IntroduceStudentRequest;
+use App\Constants\PointConfirmRequest;
 use App\Constants\TranscriptRequest;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -91,6 +93,27 @@ class RequestInfoResource extends JsonResource
         }
         if (isset($this->process_place) && $this->process_place !== null) {
             $returnData['receiving_place'] = $this->process_place ?? null;
+        }
+        if (isset($this->email) && $this->email !== null) {
+            $returnData['email'] = $this->email ?? null;
+        }
+        if (isset($this->contact_method) && $this->contact_method !== null) {
+            $returnData['contact_method'] = $this->contact_method ?? null;
+        }
+        if (isset($this->priority) && $this->priority !== null) {
+            $returnData['priority'] = $this->priority ?? null;
+        }
+        if (isset($this->name) && $this->name !== null) {
+            $returnData['name'] = $this->name ?? null;
+        }
+        if (isset($this->program_type) && $this->program_type !== null) {
+            $returnData['program_type'] = PointConfirmRequest::PROGRAM_TYPE[$this->program_type];
+        }
+        if (isset($this->learning_program) && $this->learning_program !== null) {
+            $returnData['learning_program'] = IntroduceStudentRequest::LEARNING_PROGRAM[$this->learning_program];
+        }
+        if (isset($this->practice_place) && $this->practice_place !== null) {
+            $returnData['practice_place'] = $this->practice_place ?? null;
         }
         return $returnData;
     }
